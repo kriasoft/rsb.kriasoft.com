@@ -32,14 +32,8 @@
     "stylelint-order": "^0.6.0"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.css": [
-      "stylelint --fix",
-      "git add"
-    ]
+    "*.js": ["eslint --fix", "git add"],
+    "*.css": ["stylelint --fix", "git add"]
   },
   "scripts": {
     "precommit": "lint-staged",
@@ -48,7 +42,7 @@
     "relay": "node setup --download-schema && relay-compiler --src ./src --schema ./src/schema.graphql",
     "build": "node setup && react-scripts build",
     "test": "node setup && react-scripts test --env=jsdom",
-    "deploy": "node setup && react-scripts build && gh-pages -d build",
+    "deploy": "node setup && react-scripts build && cp ./build/index.html ./build/404.html && gh-pages -d build",
     "start": "node setup && react-scripts start"
   }
 }
